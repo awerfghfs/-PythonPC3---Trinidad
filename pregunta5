@@ -1,0 +1,25 @@
+class Alumno:
+    def __init__(self, nombre, numero_registro):
+        self.nombre = nombre
+        self.numero_registro = numero_registro
+        self.edad = None
+        self.notas = []
+
+    def display(self):
+        print("Información del estudiante:")
+        print("Nombre:", self.nombre)
+        print("Número de registro:", self.numero_registro)
+        print("Edad:", self.edad if self.edad is not None else "No asignada")
+        print("Notas:", ", ".join(map(str, self.notas)) if self.notas else "No asignadas")
+
+    def set_edad(self, edad):
+        self.edad = edad
+
+    def set_notas(self, notas):
+        self.notas = notas
+
+if __name__ == "__main__":
+    alumno = Alumno("Mar", "23190123")
+    alumno.set_edad(19)
+    alumno.set_notas([15, 17, 19])
+    alumno.display()
