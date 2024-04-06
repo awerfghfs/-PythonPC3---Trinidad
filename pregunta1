@@ -1,0 +1,33 @@
+def obtener_porcentaje(f):
+    try:
+        numerador, denominador = map(int, f.split('/'))
+        if denominador == 0:
+            raise ZeroDivisionError("El denominador no puede ser cero.")
+        if numerador <= 0 or denominador <= 0:
+            raise ValueError("Los números deben ser enteros positivos.")
+        if numerador > denominador:
+            raise ValueError("El numerador debe ser menor o igual al denominador.")
+        porcentaje = numerador / denominador * 100
+        if porcentaje < 1:
+            return 'E'
+        elif porcentaje > 99:
+            return 'F'
+        else:
+            return f"{round(porcentaje)}%"
+    except ValueError as ve:
+        print(f"Error: {ve}. ingrese una fracción válida.")
+        return None
+    except ZeroDivisionError as ze:
+        print(f"Error: {ze}. ingrese una fracción válida.")
+        return None
+
+def main():
+    while True:
+        fraccion = input("ingrese una fracción en formato X/Y (X e Y números enteros): ")
+        porcentaje = obtener_porcentaje(fraccion)
+        if porcentaje is not None:
+            print("cantidad de combustible en el tanque:", porcentaje)
+            break
+
+if __name__ == "__main__":
+    main()
