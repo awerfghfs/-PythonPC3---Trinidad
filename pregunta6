@@ -25,6 +25,12 @@ class Catalogo:
             if prod.año == año:
                 print(prod)
 
+    def filtrar_por_año_y_precio(self, año, precio_max):
+        print(f"Productos del año {año} con precio menor o igual a ${precio_max}:")
+        for prod in self.prod:
+            if prod.año == año and prod.precio <= precio_max:
+                print(prod)
+
 # En la práctica
 if __name__ == "__main__":
     catalogo = Catalogo()
@@ -33,11 +39,14 @@ if __name__ == "__main__":
     prod1 = Prod("Llanta", 200, 2024)
     prod2 = Prod("Batería", 160, 2023)
     prod3 = Prod("Aceite", 25, 2024)
+    prod4 = Prod("Filtro de aire", 30, 2023)
 
     catalogo.agregar_prod(prod1)
     catalogo.agregar_prod(prod2)
     catalogo.agregar_prod(prod3)
+    catalogo.agregar_prod(prod4)
 
     catalogo.mostrar_prod()
 
     catalogo.filtrar_por_año(2024)
+    catalogo.filtrar_por_año_y_precio(2023, 50)
