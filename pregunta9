@@ -1,0 +1,50 @@
+def suma(a, b):
+    try:
+        resultado = a + b
+        return resultado
+    except TypeError:
+        print("Error: Tipo de dato no válido.")
+        return None
+
+def resta(a, b):
+    try:
+        resultado = a - b
+        return resultado
+    except TypeError:
+        print("Error: Tipo de dato no válido.")
+        return None
+
+def producto(a, b):
+    try:
+        resultado = a * b
+        return resultado
+    except TypeError:
+        print("Error: Tipo de dato no válido.")
+        return None
+
+def division(a, b):
+    try:
+        if b == 0:
+            raise ZeroDivisionError
+        resultado = a / b
+        return resultado
+    except TypeError:
+        print("Error: Tipo de dato no válido.")
+        return None
+    except ZeroDivisionError:
+        print("Error: No es posible dividir entre cero.")
+        return None
+
+if __name__ == "__main__":
+    # Usando la función
+    resultado_suma = suma(-15, 5)
+    print("Suma:", resultado_suma)
+
+    resultado_resta = resta(-15, 5)
+    print("Resta:", resultado_resta)
+
+    resultado_producto = producto(-15, 5)
+    print("Producto:", resultado_producto)
+
+    resultado_division = division(-15, 0)
+    print("División:", resultado_division)
