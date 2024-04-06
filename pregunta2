@@ -1,0 +1,14 @@
+def main():
+    while True:
+        try:
+            calificaciones_str = input("ingresar las calificaciones separadas por comas: ")
+            calificaciones_lista = calificaciones_str.split(',')
+            calificaciones_enteros = [int(calificacion) for calificacion in calificaciones_lista]
+            print("calificaciones ingresadas:", calificaciones_enteros)
+            break  # Salir del bucle si fue exitoso
+        except ValueError:
+            print("Error: ingresar solo números enteros separados por comas.")
+            # continuar con el bucle
+
+if __name__ == "__main__":
+    main()
