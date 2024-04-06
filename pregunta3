@@ -1,0 +1,14 @@
+import math
+
+class Circulo:
+    def __init__(self, radio):
+        self.radio = radio
+
+    def calcular_área(self):
+        return math.pi * self.radio ** 2
+
+if __name__ == "__main__":
+    radio = float(input("ingrese el radio del círculo: "))
+    circulo = Circulo(radio)
+    área = circulo.calcular_área()
+    print("El área del círculo es:", área)
