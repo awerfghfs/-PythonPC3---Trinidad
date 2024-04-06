@@ -1,0 +1,43 @@
+class Prod:
+    def __init__(self, nombre, precio, año):
+        self.nombre = nombre
+        self.precio = precio
+        self.año = año
+
+    def __str__(self):
+        return f"{self.nombre} - Precio: {self.precio} - Año: {self.año}"
+
+class Catalogo:
+    def __init__(self):
+        self.prod = []
+
+    def agregar_prod(self, prod):
+        self.prod.append(prod)
+
+    def mostrar_prod(self):
+        print("Lista de productos:")
+        for prod in self.prod:
+            print(prod)
+
+    def filtrar_por_año(self, año):
+        print(f"Productos del año {año}:")
+        for prod in self.prod:
+            if prod.año == año:
+                print(prod)
+
+# En la práctica
+if __name__ == "__main__":
+    catalogo = Catalogo()
+
+    # Productos del catálogo
+    prod1 = Prod("Llanta", 200, 2024)
+    prod2 = Prod("Batería", 160, 2023)
+    prod3 = Prod("Aceite", 25, 2024)
+
+    catalogo.agregar_prod(prod1)
+    catalogo.agregar_prod(prod2)
+    catalogo.agregar_prod(prod3)
+
+    catalogo.mostrar_prod()
+
+    catalogo.filtrar_por_año(2024)
