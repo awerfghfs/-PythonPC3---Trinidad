@@ -1,0 +1,50 @@
+import math
+
+class Circulo:
+    def __init__(self, radio):
+        self.radio = radio
+
+    def calcular_area(self):
+        return math.pi * self.radio ** 2
+
+class Rectangulo:
+    def __init__(self, largo, ancho):
+        self.largo = largo
+        self.ancho = ancho
+
+    def calcular_area(self):
+        return self.largo * self.ancho
+
+def mostrar_menu():
+    print("Menú:")
+    print("1. calcular el área de un círculo")
+    print("2. calcular el área de un rectángulo")
+    print("3. salir")
+
+def calcular_area_circulo():
+    radio = float(input("Ingrese el radio del círculo: "))
+    circulo = Circulo(radio)
+    area = circulo.calcular_area()
+    print("El área del círculo es:", area)
+
+def calcular_area_rectangulo():
+    largo = float(input("ingrese el largo del rectángulo: "))
+    ancho = float(input("ingrese el ancho del rectángulo: "))
+    rectangulo = Rectangulo(largo, ancho)
+    area = rectangulo.calcular_area()
+    print("El área del rectángulo es:", area)
+
+if __name__ == "__main__":
+    while True:
+        mostrar_menu()
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            calcular_area_circulo()
+        elif opcion == "2":
+            calcular_area_rectangulo()
+        elif opcion == "3":
+            print("saliendo del programa")
+            break
+        else:
+            print("opción no válida, seleccione una opción válida.")
